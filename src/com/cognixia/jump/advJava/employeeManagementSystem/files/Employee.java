@@ -1,6 +1,7 @@
 package com.cognixia.jump.advJava.employeeManagementSystem.files;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import com.cognixia.jump.advJava.employeeManagementSystem.files.Employee.DepartmentType;
 
@@ -47,40 +48,24 @@ public class Employee implements Serializable {
 		this.salary = salary;
 	}
 		
-	public static DepartmentType getDepartmentType(String str) throws InvalidDepartmentException {
-			
-			DepartmentType returnValue;
-			
-			switch (str) {
-			
-				case "FINANCE" :
-					returnValue = DepartmentType.valueOf(str);
-					break;
-				case "PROCUREMENT" :
-					returnValue = DepartmentType.valueOf(str);
-					break;
-				case "IT" :
-					returnValue = DepartmentType.valueOf(str);
-					break;
-				case "DEMAND_PLANNING" :
-					returnValue = DepartmentType.valueOf(str);
-					break;
-				case "HUMAN_RESOURCES" :
-					returnValue = DepartmentType.valueOf(str);
-					break;
-				default: 
-					returnValue = null;
-					break;
-					
-			}
-			
-			if (returnValue == null) {
-				throw new InvalidDepartmentException(str);
-			}
-			
-			return returnValue;
-		
-		}
+	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(department, name, salary);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		return department == other.department && Objects.equals(name, other.name) && salary == other.salary;
+	}
 
 	@Override
 	public String toString() {

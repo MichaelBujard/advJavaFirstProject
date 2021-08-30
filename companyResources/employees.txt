@@ -28,3 +28,12 @@ HUMAN_RESOURCES
 Milton Orator
 HUMAN_RESOURCES
 62000
+Koe Jilmer
+IT
+100001
+Joe Kilmer
+IT
+200000
+James Farley Fallover
+FINANCE
+2000000
