@@ -1,39 +1,12 @@
-Jacob Harbour
-FINANCE
-42000
-Royce Rolwes
-PROCUREMENT
-49000
 James Colt
 IT
 78000
 Vincent DiCapilla
-DEMAND_PLANNING
-43000
-Joseph Winston Hechavarria
-HUMAN_RESOURCES
-44000
+IT
+345
 Hilbert Justitiam
 FINANCE
 53000
-Jonas Horan
-PROCUREMENT
-63000
-Julian Potter
-IT
-52000
-Albert Galindo
-HUMAN_RESOURCES
-69000
-Milton Orator
-HUMAN_RESOURCES
-62000
-Koe Jilmer
-IT
-100001
 Joe Kilmer
-IT
-200000
-James Farley Fallover
 FINANCE
-2000000
+1
