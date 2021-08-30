@@ -17,8 +17,6 @@ import com.cognixia.jump.advJava.employeeManagementSystem.files.Employee.Departm
 import com.cognixia.jump.advJava.employeeManagementSystem.files.InvalidDepartmentException;
 
 public class ReadEmployeesFile {
-	
-	
 
 	public static void main(String[] args) {
 		
@@ -86,7 +84,15 @@ public class ReadEmployeesFile {
 					e.printStackTrace();
 				}
 				int newSalary = Integer.parseInt(paramsArr[2]);
-				Employee newEmployee = (newDepartment != null) ? new Employee(newName, newDepartment, newSalary) : null;
+				Employee newEmployee = null;
+				if (newDepartment.equals(DepartmentType.IT)) {
+					System.out.println("Created a software developer!");
+					newEmployee = new SoftwareDeveloper(newName, DepartmentType.IT, newSalary);
+				}
+				else {
+					newEmployee = (newDepartment != null) ? new Employee(newName, newDepartment, newSalary) : newEmployee;
+				}
+				
 				System.out.println("You put: " + newEmployee.toString());
 				/* write to file. */
 				FileWriter fileWriter = null;
@@ -131,6 +137,9 @@ public class ReadEmployeesFile {
 					}
 					
 				}
+				if (newSalary < 52000)
+					System.out.println("The program automatically gave the software developer a "
+							+ "higher base salary. \nIsn't that cool?");
 				
 			}
 			
@@ -327,6 +336,7 @@ public class ReadEmployeesFile {
 		
 		Employee employee = null;
 		
+		
 		while ((line = reader.readLine()) != null) {
 			switch (ruler) {
 				case 1 :
@@ -361,7 +371,17 @@ public class ReadEmployeesFile {
 			}
 			
 			//create employee from file input and continue
-			employee = (ruler == 1 && department != null) ? new Employee(name, department, salary) : null;
+			
+			if (ruler == 1 && department != null && department.equals(DepartmentType.IT)) {
+				if (salary < 52000) {
+					salary = 52000;
+				}
+				employee = new SoftwareDeveloper(name, department, salary);
+			}
+			else {
+				employee = (ruler == 1 && department != null) ? new Employee(name, department, salary) : null;
+				
+			}
 			
 			/* add employee to list. If null, indicates bad department */
 			if (ruler == 1  && !list.contains(employee)) {

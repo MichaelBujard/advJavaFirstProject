@@ -13,6 +13,8 @@ public class Employee implements Serializable {
 		FINANCE, PROCUREMENT, IT, DEMAND_PLANNING, HUMAN_RESOURCES
 	}
 	
+	
+	
 	private String name;
 	private DepartmentType department;
 	private int salary;
