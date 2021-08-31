@@ -269,6 +269,7 @@ public class ReadEmployeesFile {
 	
 	public static DepartmentType getDepartmentType(String str) throws InvalidDepartmentException {
 		
+		str = str.toUpperCase();
 		DepartmentType returnValue;
 		
 		switch (str) {
@@ -373,8 +374,8 @@ public class ReadEmployeesFile {
 			//create employee from file input and continue
 			
 			if (ruler == 1 && department != null && department.equals(DepartmentType.IT)) {
-				if (salary < 52000) {
-					salary = 52000;
+				if (salary < SoftwareDeveloper.salary) {
+					salary = SoftwareDeveloper.salary;
 				}
 				employee = new SoftwareDeveloper(name, department, salary);
 			}
@@ -397,13 +398,6 @@ public class ReadEmployeesFile {
 		return command.toLowerCase().equals(option);
 	}
 	
-	public static void appendToFile(BufferedWriter writer, String str) throws IOException{
-		
-		writer.newLine();
-		writer.append(str);
-		
-	}
-	
 	public static int getNumberOfEmployees(List<Employee> list, File file) {
 		System.out.println("called 'getNumberOfEmployees'");
 		
@@ -424,10 +418,6 @@ public class ReadEmployeesFile {
 			e.getStackTrace();
 		}
 		return count / 3;
-	}
-	
-	public static void getEmployeeFromIndex() {
-		System.out.println("'getEmployeeFromIndex'");
 	}
 
 	public static void updateEmployeeFromIndex(File file, String searchName, String name, DepartmentType department, int salary) {

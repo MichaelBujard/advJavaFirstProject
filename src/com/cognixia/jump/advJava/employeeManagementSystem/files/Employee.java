@@ -26,6 +26,11 @@ public class Employee implements Serializable {
 		this.setSalary(salary);
 	}
 
+	public static int work() {
+		System.out.println("General employee work");
+		return 0;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -50,6 +55,12 @@ public class Employee implements Serializable {
 		this.salary = salary;
 	}
 		
+	
+	public String elevatorPitch() {
+		return "My name is " + this.getName() + ".\n"
+				+ "I work in  the " + this.getDepartment() + " department, \n"
+				+ "and I get paid " + this.getSalary() + "annually.";
+	}
 	
 
 	@Override
